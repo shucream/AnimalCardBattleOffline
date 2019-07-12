@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AnimalNames, JpAnimalName } from '../components/AnimalCard';
+import {AnimalNames, getCardWidth, JpAnimalName} from '../components/AnimalCard';
 import { Deck } from '../components/Deck';
 import Opposite from '../components/Opposite';
 import { Player } from '../components/Player';
@@ -75,6 +75,7 @@ class GameScreen extends React.Component<Props, State> {
 
     public render() {
         const cardHeight = window.innerHeight / 6;
+        const handWidth = 8*getCardWidth(cardHeight);
         return (
             <Container>
                 <div style={{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
@@ -93,7 +94,7 @@ class GameScreen extends React.Component<Props, State> {
                     onChoice={this.handleUserChoiceAnimal.bind(this)}
                     {...this.state.players[0]}
                     size={cardHeight}
-                    width={window.innerWidth}
+                    width={handWidth}
                 />
                 {this.state.animationWrapper && (
                     <WrapperAnimations
@@ -109,6 +110,7 @@ class GameScreen extends React.Component<Props, State> {
     private async startGame() {
         await this.newDay();
         await this.playersChoice();
+        await
         await this.morning();
         await this.checkWinner();
         await this.daytime();

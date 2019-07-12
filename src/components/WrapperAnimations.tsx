@@ -16,13 +16,15 @@ interface Props {
 
 interface State {
     opacity: number;
-    textTranslate: string;
+    height: number;
+    fontSize: number;
 }
 
 export default class WrapperAnimations extends React.Component<Props, State> {
     public state = {
         opacity: 0,
-        textTranslate: 'translateX(-100%)'
+        height: 0,
+        fontSize: 0,
     };
 
     public render() {
@@ -45,24 +47,29 @@ export default class WrapperAnimations extends React.Component<Props, State> {
             >
                 <div
                     style={{
-                        height: 100,
                         width: '100%',
                         backgroundColor: '#3f9',
                         justifyContent: 'center',
+                        height: this.state.height,
+                        transitionDuration: '500ms',
+                        transitionProperty: 'all',
+                        transitionTimingFunction: 'ease',
                         alignItems: 'center'
                     }}
                 >
-                    <h1
+                    <p
                         style={{
+                            margin: 0,
                             transitionDuration: '500ms',
                             transitionProperty: 'all',
                             transitionTimingFunction: 'ease',
                             textAlign: 'center',
-                            transform: this.state.textTranslate
+                            fontSize: this.state.fontSize,
+                            opacity: this.state.opacity,
                         }}
                     >
                         {this.props.message}
-                    </h1>
+                    </p>
                 </div>
             </div>
         );
@@ -71,15 +78,15 @@ export default class WrapperAnimations extends React.Component<Props, State> {
     public async startAnimation() {
         if (this.props.type === 'stay') {
             return Promise.resolve()
-                .then(wait(500))
-                .then(() => this.setState({ opacity: 1, textTranslate: 'translateX(0%)' }));
+                .then(wait(300))
+                .then(() => this.setState({ opacity: 1, height: 0 }));
         } else {
             return Promise.resolve()
-                .then(wait(500))
-                .then(() => this.setState({ opacity: 1, textTranslate: 'translateX(0%)' }))
+                .then(wait(300))
+                .then(() => this.setState({ opacity: 1, height: 100, fontSize: 60 }))
                 .then(wait(2000))
-                .then(() => this.setState({ opacity: 0, textTranslate: 'translateX(100%)' }))
-                .then(wait(500));
+                .then(() => this.setState({ opacity: 0, height: 0, fontSize: 0 }))
+                .then(wait(300));
         }
     }
 }

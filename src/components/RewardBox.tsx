@@ -1,4 +1,6 @@
 import React from 'react';
+import styled, {keyframes} from "styled-components";
+import {CSSTransition} from "react-transition-group";
 
 interface Props {
     rewards: {
@@ -13,12 +15,19 @@ export const RewardBox: React.FC<Props> = props => {
     const { rewards, size = 10, style } = props;
     const { apple, fish } = rewards;
 
-    const AppleGem = () => (
-        <div style={{ width: size, height: size, borderRadius: '50%', backgroundColor: '#ff5722' }} />
-    );
-    const FishGem = () => (
-        <div style={{ width: size, height: size, borderRadius: '50%', backgroundColor: '#3076ff' }} />
-    );
+    const AppleGem = styled.div`
+        width: ${size};
+        height: ${size};
+        border-radius: 50%;
+        background-color: #ff5722;
+    `;
+
+    const FishGem = styled.div`
+        width: ${size};
+        height: ${size};
+        border-radius: 50%;
+        background-color: #3076ff;
+    `;
 
     return (
         <div

@@ -24,9 +24,13 @@ interface Props {
     style?: any;
 }
 
+export const getCardWidth = (size: number) => {
+    return (size * 697) / 1014;
+};
+
 export const AnimalCard: React.FC<Props> = props => {
     const { name, onClick, size = 100, reverse, disable, style } = props;
-    const dx = (size * 697) / 1014;
+    const dx = getCardWidth(size);
     const dy = size;
     let width = dx;
     let height = dy;
