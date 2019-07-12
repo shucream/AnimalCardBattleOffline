@@ -53,9 +53,14 @@ const TopScreen: React.FC<Props> = props => {
                     <Button component={Link} to="/game/4" >4人プレイ</Button>
                     <Button component={Link} to="/game/5" >5人プレイ</Button>
                 </ButtonGroup>
-                <Button component={Link} to="/howto" variant="contained" size={buttonSize} >
-                    あそびかた
-                </Button>
+                <ButtonGroup variant="contained" size={buttonSize} >
+                    <Button component={Link} to="/howto" >
+                        あそびかた
+                    </Button>
+                    <Button component={Link} to="/setting" >
+                        設定
+                    </Button>
+                </ButtonGroup>
             </StyledPaper>
         </Container>
     );

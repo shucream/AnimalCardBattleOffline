@@ -1,19 +1,79 @@
 import React from 'react';
 import styled from 'styled-components';
 import Background from './assets/title-s.jpg';
+// @ts-ignore
+import BGM from './assets/bgm.mp3';
 import {BrowserRouter, Route} from "react-router-dom";
 import TopScreen from "./screens/TopScreen";
 import HowToPlayScreen from "./screens/HowToPlayScreen";
+import ReactPlayer from "react-player";
+import SettingScreen from "./screens/SettingScreen";
+import GameScreen from "./screens/GameScreen";
 
-const App: React.FC = () => {
-  return (
-      <BackgroundImage>
-        <BrowserRouter>
-            <Route exact path={'/'} component={TopScreen}/>
-            <Route exact path={'/howto'} component={HowToPlayScreen}/>
-        </BrowserRouter>
-      </BackgroundImage>
-  );
+interface Props {}
+
+interface State {
+    bgmVolume: number;
+    effectStart: boolean;
+    effectVolume: number;
+    effect: any;
+}
+
+export default class App extends React.Component<Props, State> {
+    public state: State = {
+        bgmVolume: 100,
+        effectStart: false,
+        effectVolume: 100,
+        effect: '',
+    };
+
+    public handleBgmVolume = (event: any, newValue: any) => {
+        this.setState({ bgmVolume: newValue });
+    };
+
+    private handleEffectVolume = (event: any, newValue: any) => {
+        this.setState({ effectVolume: newValue });
+    };
+
+    public render() {
+        return (
+            <BackgroundImage>
+                <BrowserRouter>
+                    <Route exact path={'/'} component={TopScreen}/>
+                    <Route path={'/game/:id'} component={GameScreen} />
+                    <Route exact path={'/howto'} component={HowToPlayScreen}/>
+                    <Route exact path={'/setting'} render={() => (
+                        <SettingScreen
+                            bgmVolume={this.state.bgmVolume}
+                            effectVolume={this.state.effectVolume}
+                            handleBgmVolume={this.handleBgmVolume.bind(this)}
+                            handleEffectVolume={this.handleEffectVolume.bind(this)}
+                        />
+                    )}/>
+                </BrowserRouter>
+                <ReactPlayer
+                    url={BGM}
+                    volume={this.state.bgmVolume / 100}
+                    width={0}
+                    height={0}
+                    style={{ opacity: 0 }}
+                    loop
+                    playing
+                />
+                <ReactPlayer
+                    url={this.state.effect}
+                    volume={this.state.effectVolume / 100}
+                    playing={this.state.effectStart}
+                    width={0}
+                    height={0}
+                    style={{ opacity: 0 }}
+                />
+            </BackgroundImage>
+        );
+    }
+
+
+
 };
 
 const BackgroundImage = styled.div`
@@ -26,5 +86,3 @@ const BackgroundImage = styled.div`
     flex-direction: column;
     display: flex;
 `;
-
-export default App;

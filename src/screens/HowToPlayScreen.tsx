@@ -37,14 +37,14 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 10px;
     max-width: 768px;
+    padding: 10px;
 `;
 
 const StyledPaper = styled(Paper)`
     display: flex;
     padding: 30px;
-    width: 100%;
+    background-color: white;
     align-items: center;
     justify-content: center;
     flex-direction: column;
