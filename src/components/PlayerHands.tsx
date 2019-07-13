@@ -1,6 +1,7 @@
 import React, {ReactNode} from 'react';
 import {AnimalCard, AnimalNames} from './AnimalCard';
-import {PlayerResultState} from "../lib/GameRule";
+// @ts-ignore
+import sePoka from '../assets/se/select.mp3';
 
 type State = { [P in AnimalNames]: boolean };
 
@@ -8,6 +9,7 @@ interface Props {
     onChoiceCard: (value: { animal: AnimalNames }) => void;
     width: number;
     disables: AnimalNames[];
+    soundEffect: (sound: any) => void;
     style?: any;
 }
 
@@ -56,6 +58,7 @@ export default class PlayerHands extends React.Component<Props, State> {
     }
 
     private onFocus(animal: AnimalNames) {
+        this.props.soundEffect(sePoka);
         if (this.state[animal.toString() as keyof State] && !this.props.disables.includes(animal)) {
             this.props.onChoiceCard({ animal: animal });
         } else {

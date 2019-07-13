@@ -1,8 +1,11 @@
 import React from "react";
 import {findDOMNode} from "react-dom";
+// @ts-ignore
+import coinEffect from '../assets/se/coin.mp3';
 
 interface Props {
     size: number;
+    soundEffect: (sound: any) => void;
 }
 
 interface State {
@@ -34,6 +37,7 @@ export class AppleGem extends React.Component<Props, State> {
             .then(wait(500))
             .then(() => this.setState( {opacity: 1}))
             .then(wait(400+100*Math.random()))
+            .then(() => this.props.soundEffect(coinEffect))
             .then(() => this.setState({x: 0, y: 0}))
     }
 

@@ -1,15 +1,20 @@
 import * as React from 'react';
 import {AnimalNames, getCardWidth, JpAnimalName} from '../components/AnimalCard';
-import { Deck } from '../components/Deck';
+import {Deck} from '../components/Deck';
 import Opposite from '../components/Opposite';
-import { Player } from '../components/Player';
-import { Rewards, RewardSet } from '../components/RewardCard';
+import {Player} from '../components/Player';
+import {Rewards, RewardSet} from '../components/RewardCard';
 import WrapperAnimations from '../components/WrapperAnimations';
-import { Computer, PublicPlayerParams } from '../lib/Computer';
+import {Computer, PublicPlayerParams} from '../lib/Computer';
 import * as GameRule from '../lib/GameRule';
-import { defaultDeck } from '../lib/GameConfig';
+import {PlayerResultState} from '../lib/GameRule';
+import {defaultDeck} from '../lib/GameConfig';
 import styled from 'styled-components';
-import {PlayerResultState} from "../lib/GameRule";
+//@ts-ignore
+import correctSound from '../assets/se/correct.mp3';
+//@ts-ignore
+import incorrectSound from '../assets/se/incorrect.mp3';
+
 
 export interface PlayerState {
     cardState?: PlayerResultState;
@@ -46,6 +51,7 @@ interface OuterProps {
             id: string;
         };
     };
+    soundEffect: (sound: any) => void;
 }
 
 type Props = OuterProps;
@@ -88,6 +94,7 @@ class GameScreen extends React.Component<Props, State> {
                             open={this.state.open}
                             id={key + 1}
                             cardHeight={cardHeight}
+                            soundEffect={this.props.soundEffect}
                         />
                     ))}
                 </div>
@@ -97,12 +104,14 @@ class GameScreen extends React.Component<Props, State> {
                     {...this.state.players[0]}
                     size={cardHeight}
                     width={handWidth}
+                    soundEffect={this.props.soundEffect}
                 />
                 {this.state.animationWrapper && (
                     <WrapperAnimations
                         ref={this.refAnimationWrapper}
                         message={this.state.animationMessage}
                         type={this.state.gameState === 'end' ? 'stay' : undefined}
+                        soundEffect={this.props.soundEffect}
                     />
                 )}
             </Container>
@@ -138,6 +147,7 @@ class GameScreen extends React.Component<Props, State> {
     }
 
     private async newDay() {
+        await this.createAnimationWrapper((this.state.day+1).toString()+'日目');
         await this.setStateAsync({ open: false });
         await this.setStateAsync({ day: this.state.day + 1 });
         await this.drawCard();
@@ -251,6 +261,13 @@ class GameScreen extends React.Component<Props, State> {
         });
         const nextPlayersState = this.state.players.slice();
         result.map(player => {
+            if (player.playerId === 0) {
+                if (player.state === PlayerResultState.success) {
+                    this.props.soundEffect(correctSound);
+                } else if (player.state === PlayerResultState.failure) {
+                    this.props.soundEffect(incorrectSound);
+                }
+            }
             nextPlayersState[player.playerId] = Object.assign({}, nextPlayersState[player.playerId]);
             nextPlayersState[player.playerId].rewards = Object.assign({}, nextPlayersState[player.playerId].rewards);
             nextPlayersState[player.playerId].rewards.apple += player.addRewards.apple;
@@ -270,6 +287,13 @@ class GameScreen extends React.Component<Props, State> {
         });
         const nextPlayersState = this.state.players.slice();
         result.map(player => {
+            if (player.playerId === 0) {
+                if (player.state === PlayerResultState.success) {
+                    this.props.soundEffect(correctSound);
+                } else if (player.state === PlayerResultState.failure) {
+                    this.props.soundEffect(incorrectSound);
+                }
+            }
             nextPlayersState[player.playerId] = Object.assign({}, nextPlayersState[player.playerId]);
             nextPlayersState[player.playerId].rewards = Object.assign({}, nextPlayersState[player.playerId].rewards);
             nextPlayersState[player.playerId].rewards.apple += player.addRewards.apple;
@@ -289,6 +313,13 @@ class GameScreen extends React.Component<Props, State> {
         });
         const nextPlayersState = this.state.players.slice();
         result.map(player => {
+            if (player.playerId === 0) {
+                if (player.state === PlayerResultState.success) {
+                    this.props.soundEffect(correctSound);
+                } else if (player.state === PlayerResultState.failure) {
+                    this.props.soundEffect(incorrectSound);
+                }
+            }
             nextPlayersState[player.playerId] = Object.assign({}, nextPlayersState[player.playerId]);
             nextPlayersState[player.playerId].rewards = Object.assign({}, nextPlayersState[player.playerId].rewards);
             nextPlayersState[player.playerId].rewards.apple += player.addRewards.apple;

@@ -7,6 +7,7 @@ interface OuterProps {
     open: boolean;
     id: number;
     cardHeight: number;
+    soundEffect: (sound: any) => void;
     style?: any;
 }
 
@@ -26,7 +27,7 @@ export default class Opposite extends React.Component<Props, State> {
                     size={this.props.cardHeight}
                     style={{ marginBottom: 5 }}
                 />
-                <RewardBox rewards={this.props.rewards} size={this.props.cardHeight / 6} />
+                <RewardBox rewards={this.props.rewards} size={this.props.cardHeight / 6} soundEffect={this.props.soundEffect}/>
             </div>
         );
     }

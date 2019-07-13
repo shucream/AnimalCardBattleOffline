@@ -1,4 +1,8 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
+//@ts-ignore
+import animationSound from '../assets/se/animationwrapper.mp3';
+import {Link} from "react-router-dom";
+import {Button} from "@material-ui/core";
 
 const wait = (duration = 0) => {
     return () => {
@@ -9,7 +13,8 @@ const wait = (duration = 0) => {
 };
 
 interface Props {
-    message: string;
+    message: string | ReactNode;
+    soundEffect: (sound: any) => void;
     type?: 'stay';
     style?: any;
 }
@@ -42,6 +47,7 @@ export default class WrapperAnimations extends React.Component<Props, State> {
                     justifyContent: 'center',
                     alignItems: 'center',
                     opacity: this.state.opacity,
+                    flexDirection: 'column',
                     ...this.props.style
                 }}
             >
@@ -71,6 +77,11 @@ export default class WrapperAnimations extends React.Component<Props, State> {
                         {this.props.message}
                     </p>
                 </div>
+                {this.props.type==='stay' && (
+                    <Button component={Link} variant={'contained'} size={'large'} to={"/home"} style={{ marginTop: 20 }}>
+                        トップに戻る
+                    </Button>
+                )}
             </div>
         );
     }
@@ -79,10 +90,12 @@ export default class WrapperAnimations extends React.Component<Props, State> {
         if (this.props.type === 'stay') {
             return Promise.resolve()
                 .then(wait(300))
-                .then(() => this.setState({ opacity: 1, height: 0 }));
+                .then(() => this.props.soundEffect(animationSound))
+                .then(() => this.setState({ opacity: 1, height: 100, fontSize: 60 }));
         } else {
             return Promise.resolve()
                 .then(wait(300))
+                .then(() => this.props.soundEffect(animationSound))
                 .then(() => this.setState({ opacity: 1, height: 100, fontSize: 60 }))
                 .then(wait(2000))
                 .then(() => this.setState({ opacity: 0, height: 0, fontSize: 0 }))

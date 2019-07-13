@@ -9,12 +9,13 @@ interface Props {
         apple: number;
         fish: number;
     };
+    soundEffect: (sound: any) => void;
     size?: number;
     style?: any;
 }
 
 export const RewardBox: React.FC<Props> = props => {
-    const { rewards, size = 10, style } = props;
+    const { rewards, size = 10, soundEffect, style } = props;
     const { apple, fish } = rewards;
 
     return (
@@ -44,7 +45,7 @@ export const RewardBox: React.FC<Props> = props => {
                 {Array(apple)
                     .fill(null)
                     .map((_i, key) => (
-                        <AppleGem key={key}  size={size}/>
+                        <AppleGem key={key} soundEffect={soundEffect} size={size}/>
                     ))}
             </div>
             <div
@@ -61,7 +62,7 @@ export const RewardBox: React.FC<Props> = props => {
                 {Array(fish)
                     .fill(null)
                     .map((_i, key) => (
-                        <FishGem key={key}  size={size}/>
+                        <FishGem key={key} soundEffect={soundEffect} size={size}/>
                     ))}
             </div>
         </div>

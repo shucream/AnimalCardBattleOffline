@@ -5,26 +5,17 @@ import styled from "styled-components";
 import {Button, Paper} from "@material-ui/core";
 import {Link} from "react-router-dom";
 
-interface Props {}
+interface Props {
+    onClick: () => void;
+}
 
-const pages = [
-    {
-        uri: AnimalRule
-    },
-    {
-        uri: DayRule
-    }
-];
-
-const HowToPlayScreen: React.FC<Props> = props => {
+const AskScreen: React.FC<Props> = props => {
     return (
         <Container>
             <StyledPaper>
-                {pages.map(image => (
-                    <img src={image.uri} style={{ marginBottom: 20, width: '100%' }}  alt={'b'}/>
-                ))}
-                <Button component={Link} variant={'contained'} size={'large'} to={"/home"}>
-                    戻る
+                このゲームは音声が流れます。
+                <Button component={Link} variant={'contained'} size={'large'} to={"/home"} onClick={props.onClick}>
+                    進む
                 </Button>
             </StyledPaper>
         </Container>
@@ -50,4 +41,4 @@ const StyledPaper = styled(Paper)`
     flex-direction: column;
 `;
 
-export default HowToPlayScreen;
+export default AskScreen;

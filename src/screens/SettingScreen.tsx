@@ -43,7 +43,7 @@ const SettingScreen: React.FC<Props> = props => {
                         <VolumeUp />
                     </Grid>
                 </Grid>
-                <Button component={Link} variant={'contained'} size={'large'} to={"/"}>
+                <Button component={Link} variant={'contained'} size={'large'} to={"/home"}>
                     戻る
                 </Button>
             </StyledPaper>
