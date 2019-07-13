@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4777991-1dc6-4286-9a6f-70f7ec1b0fc3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/AppleGem.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/FishGem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AnimalCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AnimalCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Opposite.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Opposite.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Player.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Player.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PlayerHands.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlayerHands.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RewardBox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RewardBox.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/GameRule.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/GameRule.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/GameScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/GameScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AppleGem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppleGem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FishGem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FishGem.tsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,29 +19,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/AppleGem.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="53" selection-end-column="1" />
+            <state relative-caret-position="161">
+              <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="692" column="4" selection-start-line="692" selection-start-column="4" selection-end-line="692" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="4657" column="10" selection-start-line="4657" selection-start-column="10" selection-end-line="4657" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -105,19 +79,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/GameRule.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="610">
-              <caret line="145" column="104" selection-start-line="145" selection-start-column="104" selection-end-line="145" selection-end-column="104" />
+            <state relative-caret-position="866">
+              <caret line="171" column="25" selection-start-line="171" selection-start-column="25" selection-end-line="171" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/FishGem.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="495">
+              <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
               <folding>
                 <element signature="e#233#259#0" expanded="true" />
               </folding>
@@ -149,15 +124,15 @@
         <option value="$PROJECT_DIR$/src/components/RewardCard.tsx" />
         <option value="$PROJECT_DIR$/src/lib/Computer.ts" />
         <option value="$PROJECT_DIR$/src/components/WrapperAnimations.tsx" />
-        <option value="$PROJECT_DIR$/src/lib/GameRule.ts" />
         <option value="$PROJECT_DIR$/src/components/BattleCard.tsx" />
         <option value="$PROJECT_DIR$/src/components/AnimalCard.tsx" />
         <option value="$PROJECT_DIR$/src/components/PlayerHands.tsx" />
         <option value="$PROJECT_DIR$/src/components/Player.tsx" />
         <option value="$PROJECT_DIR$/src/components/Opposite.tsx" />
         <option value="$PROJECT_DIR$/src/components/RewardBox.tsx" />
-        <option value="$PROJECT_DIR$/src/components/AppleGem.tsx" />
         <option value="$PROJECT_DIR$/src/screens/GameScreen.tsx" />
+        <option value="$PROJECT_DIR$/src/lib/GameRule.ts" />
+        <option value="$PROJECT_DIR$/src/components/AppleGem.tsx" />
         <option value="$PROJECT_DIR$/src/components/FishGem.tsx" />
       </list>
     </option>
@@ -249,12 +224,12 @@
       <option name="presentableId" value="Default" />
       <updated>1562912081017</updated>
       <workItem from="1562912082751" duration="22142000" />
-      <workItem from="1563023541887" duration="9207000" />
+      <workItem from="1563023541887" duration="9837000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31349000" />
+    <option name="totallyTimeSpent" value="31979000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -270,7 +245,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.18987341" />
+      <window_info content_ui="combo" id="Project" order="1" weight="0.18987341" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32864866" />
@@ -288,6 +263,26 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.18987341" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.32864866" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="TypeScript" order="5" weight="0.32972974" />
+      <window_info anchor="bottom" id="Find" order="6" />
+      <window_info anchor="bottom" id="Run" order="7" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="11" weight="0.32972974" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -534,25 +529,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/AppleGem.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="53" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/FishGem.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#233#259#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/Computer.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
@@ -562,8 +538,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/GameRule.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
-          <caret line="145" column="104" selection-start-line="145" selection-start-column="104" selection-end-line="145" selection-end-column="104" />
+        <state relative-caret-position="866">
+          <caret line="171" column="25" selection-start-line="171" selection-start-column="25" selection-end-line="171" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AppleGem.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/FishGem.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+          <folding>
+            <element signature="e#233#259#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

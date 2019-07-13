@@ -31,6 +31,8 @@ export class FishGem extends React.Component<Props, State> {
         const rect = dom.getBoundingClientRect();
         Promise.resolve()
             .then(() => this.setState({x: -rect.left+(window.innerWidth/2), y: -rect.top+(window.innerHeight/2)}))
+            .then(wait(500))
+            .then(() => this.setState( {opacity: 1}))
             .then(wait(400+100*Math.random()))
             .then(() => this.setState({x: 0, y: 0, opacity: 1}))
     }
