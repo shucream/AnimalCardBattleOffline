@@ -21,6 +21,7 @@ export default class Opposite extends React.Component<Props, State> {
                 <p style={{ margin: 0 }}>Com {this.props.id.toString()}</p>
                 <AnimalCard
                     name={this.props.handFix ? this.props.hand : null}
+                    state={this.props.cardState}
                     reverse={!this.props.open}
                     size={this.props.cardHeight}
                     style={{ marginBottom: 5 }}

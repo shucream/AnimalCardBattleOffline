@@ -1,6 +1,8 @@
 import React from 'react';
 import styled, {keyframes} from "styled-components";
 import {CSSTransition} from "react-transition-group";
+import {AppleGem} from "./AppleGem";
+import {FishGem} from "./FishGem";
 
 interface Props {
     rewards: {
@@ -14,20 +16,6 @@ interface Props {
 export const RewardBox: React.FC<Props> = props => {
     const { rewards, size = 10, style } = props;
     const { apple, fish } = rewards;
-
-    const AppleGem = styled.div`
-        width: ${size};
-        height: ${size};
-        border-radius: 50%;
-        background-color: #ff5722;
-    `;
-
-    const FishGem = styled.div`
-        width: ${size};
-        height: ${size};
-        border-radius: 50%;
-        background-color: #3076ff;
-    `;
 
     return (
         <div
@@ -56,7 +44,7 @@ export const RewardBox: React.FC<Props> = props => {
                 {Array(apple)
                     .fill(null)
                     .map((_i, key) => (
-                        <AppleGem key={key} />
+                        <AppleGem key={key}  size={size}/>
                     ))}
             </div>
             <div
@@ -73,7 +61,7 @@ export const RewardBox: React.FC<Props> = props => {
                 {Array(fish)
                     .fill(null)
                     .map((_i, key) => (
-                        <FishGem key={key} />
+                        <FishGem key={key}  size={size}/>
                     ))}
             </div>
         </div>

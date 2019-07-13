@@ -9,8 +9,10 @@ import { Computer, PublicPlayerParams } from '../lib/Computer';
 import * as GameRule from '../lib/GameRule';
 import { defaultDeck } from '../lib/GameConfig';
 import styled from 'styled-components';
+import {PlayerResultState} from "../lib/GameRule";
 
 export interface PlayerState {
+    cardState?: PlayerResultState;
     handFix: boolean;
     hand: AnimalNames;
     rewards: RewardSet;
@@ -110,12 +112,15 @@ class GameScreen extends React.Component<Props, State> {
     private async startGame() {
         await this.newDay();
         await this.playersChoice();
-        await
+        await this.readyAnimation();
         await this.morning();
+        await this.delay(1000);
         await this.checkWinner();
         await this.daytime();
+        await this.delay(1000);
         await this.checkWinner();
         await this.night();
+        await this.delay(1000);
         await this.checkWinner();
         await this.startGame();
     }
@@ -124,6 +129,12 @@ class GameScreen extends React.Component<Props, State> {
         return new Promise(resolve => {
             this.setState(state, resolve);
         });
+    }
+
+    private async delay(time: number) {
+        return new Promise(resolve => {
+            setTimeout(resolve, time);
+        })
     }
 
     private async newDay() {
@@ -145,7 +156,6 @@ class GameScreen extends React.Component<Props, State> {
             id !== 0 && playersChoicePromises.push(this.comChoice(id));
         });
         await Promise.all(playersChoicePromises);
-        await this.setStateAsync({ open: true });
     }
 
     private async userChoice() {
@@ -156,6 +166,11 @@ class GameScreen extends React.Component<Props, State> {
         } else {
             await this.userChoice();
         }
+    }
+
+    private async readyAnimation() {
+        await this.createAnimationWrapper('せーの！');
+        await this.setStateAsync({ open: true });
     }
 
     private async createAnimationWrapper(message: string) {
@@ -240,6 +255,7 @@ class GameScreen extends React.Component<Props, State> {
             nextPlayersState[player.playerId].rewards = Object.assign({}, nextPlayersState[player.playerId].rewards);
             nextPlayersState[player.playerId].rewards.apple += player.addRewards.apple;
             nextPlayersState[player.playerId].rewards.fish += player.addRewards.fish;
+            nextPlayersState[player.playerId].cardState = player.state;
         });
         await this.setStateAsync({ rewards: nextRewards });
         await this.setStateAsync({ players: nextPlayersState });
@@ -258,6 +274,7 @@ class GameScreen extends React.Component<Props, State> {
             nextPlayersState[player.playerId].rewards = Object.assign({}, nextPlayersState[player.playerId].rewards);
             nextPlayersState[player.playerId].rewards.apple += player.addRewards.apple;
             nextPlayersState[player.playerId].rewards.fish += player.addRewards.fish;
+            nextPlayersState[player.playerId].cardState = player.state;
         });
         await this.setStateAsync({ rewards: nextRewards });
         await this.setStateAsync({ players: nextPlayersState });
@@ -276,6 +293,7 @@ class GameScreen extends React.Component<Props, State> {
             nextPlayersState[player.playerId].rewards = Object.assign({}, nextPlayersState[player.playerId].rewards);
             nextPlayersState[player.playerId].rewards.apple += player.addRewards.apple;
             nextPlayersState[player.playerId].rewards.fish += player.addRewards.fish;
+            nextPlayersState[player.playerId].cardState = player.state;
         });
         await this.setStateAsync({ rewards: nextRewards });
         await this.setStateAsync({ players: nextPlayersState });

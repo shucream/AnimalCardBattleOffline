@@ -40,8 +40,8 @@ export class Player extends React.Component<Props, State> {
                         alignItems: 'flex-end'
                     }}
                 >
-                    <p style={{ color: '#fff', margin: 0, width: size * 4, paddingLeft: 10 }}>You</p>
-                    <AnimalCard name={this.props.handFix ? this.props.hand : null} size={this.props.size} />
+                    <p style={{ color: '#000', margin: 0, width: size * 4, paddingLeft: 10 }}>You</p>
+                    <AnimalCard name={this.props.handFix ? this.props.hand : null} size={this.props.size} state={this.props.cardState}/>
                     <RewardBox rewards={this.props.rewards} size={this.props.size / 6} style={{ marginRight: 10 }} />
                 </div>
                 <PlayerHands onChoiceCard={this.props.onChoice} width={this.props.size} disables={disables} />

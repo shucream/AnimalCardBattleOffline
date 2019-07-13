@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
-import  React from 'react';
-import { AnimalCard, AnimalNames } from './AnimalCard';
+import React, {ReactNode} from 'react';
+import {AnimalCard, AnimalNames} from './AnimalCard';
+import {PlayerResultState} from "../lib/GameRule";
 
 type State = { [P in AnimalNames]: boolean };
 

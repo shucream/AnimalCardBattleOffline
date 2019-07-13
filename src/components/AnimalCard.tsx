@@ -1,6 +1,8 @@
-import  React from 'react';
+import React from 'react';
 import AnimalImage from '../assets/animal.jpg';
 import BackgroundImage from '../assets/background.jpg';
+import {PlayerResultState} from "../lib/GameRule";
+import {Close, FiberManualRecord, FiberManualRecordOutlined} from "@material-ui/icons";
 
 export type AnimalNames = 'penguin' | 'kamome' | 'lion' | 'owl' | 'sheep' | 'whale' | 'turtle' | 'chicken';
 
@@ -21,6 +23,7 @@ interface Props {
     onClick?: () => void;
     reverse?: boolean;
     disable?: boolean;
+    state?: PlayerResultState;
     style?: any;
 }
 
@@ -29,7 +32,7 @@ export const getCardWidth = (size: number) => {
 };
 
 export const AnimalCard: React.FC<Props> = props => {
-    const { name, onClick, size = 100, reverse, disable, style } = props;
+    const { name, onClick, size = 100, reverse, disable, state, style } = props;
     const dx = getCardWidth(size);
     const dy = size;
     let width = dx;
@@ -110,12 +113,11 @@ export const AnimalCard: React.FC<Props> = props => {
                 height: dy,
                 overflow: 'hidden',
                 borderRadius: dx / 20,
-                boxShadow: '-1px 2px 2px rgba(0,0,0,0.5)',
                 ...style
             }}
             onClick={onClick}
         >
-            <div style={{ overflow: 'hidden', display: 'block', position: 'absolute', width, height, top, left }}>
+            <div style={{ overflow: 'hidden', display: 'block', position: 'absolute', boxShadow: '-1px 2px 2px rgba(0,0,0,0.5)', width, height, top, left }}>
                 <img src={reverse ? BackgroundImage : AnimalImage} alt={'a'} style={{ width: dx * 3 }} />
                 {disable && (
                     <div
@@ -132,6 +134,36 @@ export const AnimalCard: React.FC<Props> = props => {
                     />
                 )}
             </div>
+            {state === PlayerResultState.success && (
+                <div
+                    style={{
+                        display: 'block',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        backgroundColor: 'rgba(0,0,0,0.2',
+                    }}
+                >
+                    <FiberManualRecordOutlined style={{ color: 'red', width: '100%', height: '100%' }} />
+                </div>
+            )}
+            {state === PlayerResultState.failure && (
+                <div
+                    style={{
+                        display: 'block',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        backgroundColor: 'rgba(0,0,0,0.2',
+                    }}
+                >
+                    <Close style={{ color: 'blue', width: '100%', height: '100%' }} />
+                </div>
+            )}
         </div>
     );
 };
